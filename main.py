@@ -1,6 +1,7 @@
 import pandas as pd
 from scripts.data_cleaning import clean_data
 from scripts.data_transformation import transform_data
+from scripts.data_loading import load_data
 
 def main():
 
@@ -15,6 +16,9 @@ def main():
     # 3. Transform the data
     df_transformed = transform_data(df_clean)
     print("Data transformed. New columns:", df_transformed.columns.tolist())
+
+    # 4. Save final data
+    load_data(df_transformed, "output_data.csv")
 
 if __name__ == "__main__":
     main()
